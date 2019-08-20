@@ -1,18 +1,33 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  //state = {  }
+  //   state = {
+  //     count: this.props.counter.value
+  //   };
+
+  //   handleIncrement = () => {
+  //     this.setState({ count: this.state.count + 1 });
+  //   };
 
   render() {
-    // We know that the below expression is jsx (java script xml)
-    // All jsx gets converted to a React.createElement("h1",...)
-    //Babel is responsible for converting jsx to React.createElement(..)  API
-
-    //STEP2
+    console.log(this.props);
     return (
       <div>
-        <h1>Hello from counter component</h1>
-        <button />
+        <span className="badge badge-primary m-2">
+          {this.props.counter.value}{" "}
+        </span>
+        <button
+          onClick={() => this.props.onIncrement(this.props.counter)}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
+        <button
+          className="btn btn-danger btn-sm m-2"
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+        >
+          Delete
+        </button>
       </div>
     );
   }
